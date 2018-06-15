@@ -1,0 +1,19 @@
+<?php
+
+namespace DummyNamespace;
+
+use Abstractrs\Form\Request\Filters\Contracts\Filter;
+
+class DummyClass implements Filter
+{
+    /**
+     * Define filter
+     *
+     * @param $value
+     * @return mixed
+     */
+    public function filter($value)
+    {
+		return $value;
+	}
+}

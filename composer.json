@@ -1,0 +1,29 @@
+{
+    "name": "abstractrs/laravel-filter",
+    "description": "Create filters which transform input values, by removing or changing characters within the value.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mikica Ivosevic",
+            "email": "mikica.ivosevic@gmail.com"
+        },
+        {
+            "name": "Nikola Panajotov",
+            "email": "konasrb@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Abstractrs\\Form\\Request\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Abstractrs\\Form\\Request\\RequestFilterProvider"
+            ]
+        }
+    },
+    "require": {}
+}
