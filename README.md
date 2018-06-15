@@ -55,7 +55,8 @@ class LoginRequest extends FormRequest {
     public function filters()
     {
         return [
-            'name' => 'encrypt|hash'
+            'name' => 'lower|hash',
+            'id'   => 'int',
         ];
     }
     
