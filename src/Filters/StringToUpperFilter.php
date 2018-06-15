@@ -3,13 +3,11 @@
 namespace Abstractrs\Form\Request\Filters;
 
 use Abstractrs\Form\Request\Filters\Contracts\Filter;
-use Illuminate\Support\Facades\Crypt;
 
-class DecryptFilter implements Filter
+class StringToUpperFilter implements Filter
 {
-
     public function filter($value)
     {
-        return Crypt::decrypt($value);
+        return mb_strtoupper($value);
     }
 }

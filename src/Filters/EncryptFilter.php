@@ -3,16 +3,13 @@
 namespace Abstractrs\Form\Request\Filters;
 
 use Abstractrs\Form\Request\Filters\Contracts\Filter;
+use Illuminate\Support\Facades\Crypt;
 
 class EncryptFilter implements Filter
 {
 
     public function filter($value)
     {
-        try {
-            return \Crypt::encrypt($value);
-        }catch (\Exception $e) {
-            return $value;
-        }
+        return Crypt::encrypt($value);
     }
 }
