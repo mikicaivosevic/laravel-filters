@@ -2,6 +2,12 @@
 
 This package allows you to easily create / use filters which transform input values, by removing or changing characters within the value.
 
+#### Installation
+
+`composer require abstractrs/laravel-filters`
+
+Laravel will discover the package by itself. If you feel old-school, disable auto-discovery and add Abstractrs\Form\Request\RequestFilterProvider::class to the providers array in your config/app.php.
+
 #### Config - publish vendor
 
 ```
