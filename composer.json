@@ -1,5 +1,5 @@
 {
-    "name": "abstractrs/laravel-filter",
+    "name": "abstractrs/laravel-filters",
     "description": "Create filters which transform input values, by removing or changing characters within the value.",
     "type": "library",
     "license": "MIT",
