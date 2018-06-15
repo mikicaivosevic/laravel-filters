@@ -6,7 +6,7 @@ This package allows you to easily create / use filters which transform input val
 
 `composer require abstractrs/laravel-filters`
 
-Laravel will discover the package by itself. If you feel old-school, disable auto-discovery and add Abstractrs\Form\Request\RequestFilterProvider::class to the providers array in your config/app.php.
+Laravel will discover the package by itself. If you feel old-school, disable auto-discovery and add `Abstractrs\Form\Request\RequestFilterProvider::class` to the providers array in your config/app.php.
 
 #### Config - publish vendor
 
@@ -14,7 +14,7 @@ Laravel will discover the package by itself. If you feel old-school, disable aut
 php artisan vendor:publish --tag=laravel-filters
 ```
 
-* config/filters.php
+* `config/filters.php`
 
 ```php
 <?php
