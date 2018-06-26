@@ -29,7 +29,7 @@ return [
             'null'    => \Abstractrs\Form\Request\Filters\ToNullFilter::class,
             'int'     => \Abstractrs\Form\Request\Filters\ToIntFilter::class,
         ],
-        'namespace' => 'Http\\Filters'
+    'namespace' => 'Http\\Filters'
 ];
 
 ```
