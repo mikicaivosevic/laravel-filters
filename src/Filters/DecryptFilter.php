@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Crypt;
 
 class DecryptFilter implements Filter
 {
-
     public function filter($value)
     {
         return Crypt::decrypt($value);
