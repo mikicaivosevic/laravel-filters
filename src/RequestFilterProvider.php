@@ -26,10 +26,12 @@ class RequestFilterProvider extends ServiceProvider
                 foreach (app()->call([$request, 'filters'], []) as $key => $filters) {
                     foreach (explode('|', $filters) as $filter) {
                         /** @var Filter $filterInstance */
+                        $subFilters = explode(":", $filter);
+                        if (isset($subFilters[1])) $filter = $subFilters[0];
                         $filterClass = config('filters.aliases.' . $filter);
                         $filterInstance = app($filterClass);
                         $requestValue = $request->get($key);
-                        $request->offsetSet($key, $filterInstance->filter($requestValue));
+                        $request->offsetSet($key, $filterInstance->filter($requestValue, $filters));
                     }
                 }
             }

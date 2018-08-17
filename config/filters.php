@@ -9,6 +9,7 @@ return [
         'upper'   => \Abstractrs\Form\Request\Filters\StringToUpperFilter::class,
         'null'    => \Abstractrs\Form\Request\Filters\ToNullFilter::class,
         'int'     => \Abstractrs\Form\Request\Filters\ToIntFilter::class,
+        'array'     => \Abstractrs\Form\Request\Filters\ArrayFilter::class,
     ],
     'namespace' => 'Http\\Filters'
 ];

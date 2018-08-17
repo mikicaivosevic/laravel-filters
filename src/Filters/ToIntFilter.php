@@ -6,7 +6,7 @@ use Abstractrs\Form\Request\Filters\Contracts\Filter;
 
 class ToIntFilter implements Filter
 {
-    public function filter($value)
+    public function filter($value, $filterName = '')
     {
         if (! is_scalar($value)) {return $value;}
         $value = (string) $value;
