@@ -9,12 +9,18 @@ class ArrayFilter implements Filter
 {
     public function filter($value, $filterName = '')
     {
-        $subFilters = explode(",", explode(":", $filterName)[1]);
-        foreach ($subFilters as $filter) {
-            $filterClass = config('filters.aliases.' . $filter);
-            $filterInstance = app($filterClass);
-            $value = $filterInstance->filter($value, $filter);
+        if ($value == null) return [];
+        if (is_array($value)) {
+            $subFilters = explode(",", explode(":", $filterName)[1]);
+            foreach ($value as $k => $v) {
+                foreach ($subFilters as $filter) {
+                    $filterClass = config('filters.aliases.' . $filter);
+                    $filterInstance = app($filterClass);
+                    $value[$k] = $filterInstance->filter($v, $filter);
+                }
+            }
+            return $value;
         }
-        return $value;
+        return [$value];
     }
 }
