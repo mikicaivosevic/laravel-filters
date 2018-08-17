@@ -56,6 +56,7 @@ class LoginRequest extends FormRequest {
     {
         return [
             'name' => 'lower|hash',
+            'names' => 'array:lower', // Call lower filter for each array value
             'id'   => 'int',
         ];
     }
