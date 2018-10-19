@@ -9,6 +9,7 @@ class HashFilter implements Filter
 {
     public function filter($value, $filterName = '')
     {
+        if (empty($value)) return '';
         return Hash::make($value);
     }
 }
