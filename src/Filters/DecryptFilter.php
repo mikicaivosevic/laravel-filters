@@ -9,6 +9,7 @@ class DecryptFilter implements Filter
 {
     public function filter($value, $filterName = '')
     {
-        return Crypt::decrypt($value);
+        $format = '';
+
     }
 }

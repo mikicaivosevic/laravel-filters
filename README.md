@@ -55,9 +55,11 @@ class LoginRequest extends FormRequest {
     public function filters()
     {
         return [
-            'name' => 'lower|hash',
+            'name'  => 'lower|hash',
             'names' => 'array:lower', // Call lower filter for each array value
-            'id'   => 'int',
+            'id'    => 'int',
+            'date'  => 'carbon,d/m/Y',
+            'created_date'  => 'carbon' //default format -> filters.date_format (Y-m-d H:i:s)
         ];
     }
     
