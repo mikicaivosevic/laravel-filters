@@ -14,7 +14,7 @@ class RequestFilterProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/../config/filters.php' => config_path('filters.php'),
+            __DIR__ . '/../config/filters.php' => config_path('filters.php'),
         ], 'laravel-filters');
 
         if ($this->app->runningInConsole()) {
@@ -30,8 +30,9 @@ class RequestFilterProvider extends ServiceProvider
                         if (isset($subFilters[1])) $filter = $subFilters[0];
                         $filterClass = config('filters.aliases.' . $filter);
                         $filterInstance = app($filterClass);
-                        $requestValue = $request->get($key);
-                        $request->offsetSet($key, $filterInstance->filter($requestValue, $filters));
+
+                        $value = $request->get($key);
+                        $request->offsetSet($key, $filterInstance->filter($value, $key, $filters));
                     }
                 }
             }
@@ -43,6 +44,6 @@ class RequestFilterProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/filters.php', 'filters');
+        $this->mergeConfigFrom(__DIR__ . '/../config/filters.php', 'filters');
     }
 }
