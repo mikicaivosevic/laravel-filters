@@ -6,7 +6,7 @@ use Abstractrs\Form\Request\Filters\Contracts\Filter;
 
 class ToNullFilter implements Filter
 {
-    public function filter($value, $filterName = '')
+    public function filter($value, $name, $filterName = '')
     {
         return null;
     }

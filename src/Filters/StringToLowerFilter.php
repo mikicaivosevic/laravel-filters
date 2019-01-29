@@ -6,7 +6,7 @@ use Abstractrs\Form\Request\Filters\Contracts\Filter;
 
 class StringToLowerFilter implements Filter
 {
-    public function filter($value, $filterName = '')
+    public function filter($value, $name, $filterName = '')
     {
         return mb_strtolower($value);
     }

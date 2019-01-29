@@ -7,7 +7,7 @@ use Abstractrs\Form\Request\Filters\Contracts\Filter;
 
 class HashFilter implements Filter
 {
-    public function filter($value, $filterName = '')
+    public function filter($value, $name, $filterName = '')
     {
         if (empty($value)) return '';
         return Hash::make($value);
