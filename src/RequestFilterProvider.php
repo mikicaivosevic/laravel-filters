@@ -23,7 +23,8 @@ class RequestFilterProvider extends ServiceProvider
 
         $this->app->resolving(FormRequest::class, function (FormRequest $request, $app) {
             if (method_exists($request, 'filters')) {
-                foreach (app()->call([$request, 'filters'], []) as $key => $filters) {
+                $filtersArr = app()->call([$request, 'filters'], []);
+                foreach ($filtersArr as $key => $filters) {
                     foreach (explode('|', $filters) as $filter) {
                         /** @var Filter $filterInstance */
                         $subFilters = explode(":", $filter);
@@ -32,7 +33,7 @@ class RequestFilterProvider extends ServiceProvider
                         $filterInstance = app($filterClass);
 
                         $value = $request->get($key);
-                        $request->offsetSet($key, $filterInstance->filter($value, $key, $filters));
+                        $request->offsetSet($key, $filterInstance->filter($value, $key, $filtersArr, $filters));
                     }
                 }
             }

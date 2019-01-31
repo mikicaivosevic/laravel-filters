@@ -8,7 +8,7 @@ use Illuminate\Support\Carbon;
 class CarbonFilter implements Filter
 {
 
-    public function filter($value, $name, $filterName = '')
+    public function filter($value, $name, $filtersArr, $filterName = '')
     {
         $parsedValue = explode(',', $value, 2);
         $dateFormat = isset($parsedValue[1]) ? $parsedValue[1] : config('filters.date_format');

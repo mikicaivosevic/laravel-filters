@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Crypt;
 
 class EncryptFilter implements Filter
 {
-    public function filter($value, $name, $filterName = '')
+    public function filter($value, $name, $filtersArr, $filterName = '')
     {
         return Crypt::encrypt($value);
     }

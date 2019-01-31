@@ -7,7 +7,7 @@ use Abstractrs\Form\Request\Filters\Contracts\Filter;
 
 class ArrayFilter implements Filter
 {
-    public function filter($value, $name, $filterName = '')
+    public function filter($value, $name, $filtersArr, $filterName = '')
     {
         if ($value == null) return [];
         if (!is_array($value)) $value = [$value];

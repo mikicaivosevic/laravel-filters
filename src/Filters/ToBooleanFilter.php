@@ -6,7 +6,7 @@ use Abstractrs\Form\Request\Filters\Contracts\Filter;
 
 class ToBooleanFilter implements Filter
 {
-    public function filter($value, $name, $filterName = '')
+    public function filter($value, $name, $filtersArr, $filterName = '')
     {
         return filter_var($value, FILTER_VALIDATE_BOOLEAN);
     }
