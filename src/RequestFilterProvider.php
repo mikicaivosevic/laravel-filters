@@ -32,7 +32,7 @@ class RequestFilterProvider extends ServiceProvider
                         $filterClass = config('filters.aliases.' . $filter);
                         $filterInstance = app($filterClass);
 
-                        $value = $request->get($key);
+                        $value = $request->input($key);
                         $request->offsetSet($key, $filterInstance->filter($value, $key, $filtersArr, $filters));
                     }
                 }
