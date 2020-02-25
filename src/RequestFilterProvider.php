@@ -32,12 +32,39 @@ class RequestFilterProvider extends ServiceProvider
                         $filterClass = config('filters.aliases.' . $filter);
                         $filterInstance = app($filterClass);
 
-                        $value = $request->input($key);
-                        $request->offsetSet($key, $filterInstance->filter($value, $key, $filtersArr, $filters));
+                        $filteredValue = $filterInstance->filter($request->input($key), $key, $filtersArr, $filters);
+                        $data = $this->updateValue($request->all(), $key, $filteredValue);
+
+                        $request->merge($data);
                     }
                 }
             }
         });
+    }
+
+    /**
+     * @param $data
+     * @param $key
+     * @param $newValue
+     * @return mixed
+     */
+    private function updateValue($data, $key, $newValue)
+    {
+        $lastKey = explode('.', $key);
+        $lastKey = end($lastKey);
+
+        $replicate = [
+            'key' => $lastKey,
+            'value' => $newValue
+        ];
+
+        array_walk_recursive($data, function (&$item, $key) use ($replicate) {
+            if ($key == $replicate['key']) {
+                $item = $replicate['value'];
+            }
+        });
+
+        return $data;
     }
 
     /**
