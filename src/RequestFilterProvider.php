@@ -59,7 +59,7 @@ class RequestFilterProvider extends ServiceProvider
         ];
 
         array_walk_recursive($data, function (&$item, $key) use ($replicate) {
-            if ($key == $replicate['key']) {
+            if (strcmp($replicate['key'], $key) == 0) {
                 $item = $replicate['value'];
             }
         });
